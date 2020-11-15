@@ -15,7 +15,7 @@ while stack:
     if n not in visited:
         visited.append(n)
         if len(graph[n-1]) > 0:
-            temp = list(set(graph[n-1]) - set(visited))  # 얘가 핵심코드
+            temp = list(set(graph[n-1]) - set(visited))  # 차집합 구하려고 set 씀
             temp.sort(reverse=True)
             stack += temp
 print(len(visited)-1)
