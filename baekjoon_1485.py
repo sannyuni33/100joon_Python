@@ -7,17 +7,17 @@ def isSquare():
     disList = []
     for i in range(4):
         temp = []
-        for j in range(4):
+        for j in range(4):  # 각 점까지 가는 거리를 계산해서 리스트에 저장
             temp.append(((testCase[i][0]-testCase[j][0])**2)+((testCase[i][1]-testCase[j][1])**2))
-        temp.sort()
-        if not (temp[0] < temp[1] == temp[2] < temp[3]):  # 정사각형 모양이어야 함
+        temp.sort()  # 그리고 그 리스트를 오름차순 정렬
+        if not (temp[0] < temp[1] == temp[2] < temp[3]):  # True 여야지 정사각형 모양임
             return False
         else:
             disList.append(temp)
 
-    std = disList[0]
+    disList[0]
     for k in range(1, 3):  # 모든 점이 다른 점까지 가는 거리의 리스트가 같아야 함
-        if disList[k] != std:
+        if disList[k] != disList[0]:
             return False
     return True
 
