@@ -15,7 +15,6 @@ def isSquare():
         else:
             disList.append(temp)
 
-    disList[0]
     for k in range(1, 3):  # 모든 점이 다른 점까지 가는 거리의 리스트가 같아야 함
         if disList[k] != disList[0]:
             return False
