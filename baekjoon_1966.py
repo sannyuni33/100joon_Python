@@ -17,11 +17,11 @@ for _ in range(testCase):
                 m = len(priority)-1
 
         tmax = max(priority)
-        tmp = priority.pop(0)
+        tmp = priority.pop(0)  # 맨 앞 문서가
         if tmax != tmp:
-            priority.append(tmp)
+            priority.append(tmp)  # 중요도 1 순위가 아니면 빠꾸
         else:
-            pntCount += 1
+            pntCount += 1  # 중요도 1 순위면 출력하고 큐에서 삭제
         m -= 1
 
     result.append(pntCount+1)
