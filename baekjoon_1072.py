@@ -1,10 +1,34 @@
+# 몇 판을 해야 승률이 오를런지는 프로그램이 끝나야지만 알 수 있다...
+# 즉 이분탐색에서는 경기 수 x 를 넣어서 연산한 승률을 가지고 비교를 해야하는 것
+def binarySearch(lst, n):  # n 은 찾아야하는 승률값. 변할 수 없음.
+    start, end = 0, len(lst)-1
+    mid = (start+end)//2
+    while start < end:
+        newZ = int((y + lst[mid] - x) / lst[mid] * 100)
+        print(newZ)
+        if newZ == n:  # newZ 는 확률
+            return lst[mid]  # 그 확률을 나오게 한 경기수를 리턴
+        elif newZ < n:
+            start = mid + 1
+        else:
+            end = mid
+        mid = (start+end)//2
+        print('next list: ', lst[start:end+1])
+    return -1
+
+
 x, y = map(int, input().split())
 if x == y:
     print(-1)
 else:
-    BSrange = [x for x in range(x+1, x+(x//2)+1)]
-    print(BSrange)
-# tmp = x
+    defeatedGame = x-y
+    z = int((y/x)*100)  # 승률값
+    BSrange = [i for i in range(x+1, 2*x+1)]
+    # 이 리스트에 대해서 이분탐색을 할거임.
+    # 이렇게해도 틀렸다고하면 나올때까지 리스트 다시 만들어주는 식으로 할거임.
+    print(binarySearch(BSrange, z+1) - x)
+
+
 # if x == y:
 #     print(-1)
 # else:
@@ -42,5 +66,9 @@ else:
 
 # 진 게임을 가지고 해볼수는 없나... 이긴 게임은 계속 늘어나지만 진 게임 수는 고정
 # 근데 소수점을 버리는게 영향을 끼칠 우려가 존재
+# 생각해보니까 안됨. 절대 안됨. 소수점 아래 때문에
+# 아 아닌가 1에서 빼주면 상관없나...
 
-#
+# 메모리 초과가 뜨는 이유가 멀까.
+# 재귀함수를 쓰니까 이렇게 되는거같은디 ,,,
+# 재귀쓰지말고 함수내에서 while 문으로 끝낼 수 있을걸?!
