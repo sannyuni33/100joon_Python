@@ -4,7 +4,7 @@ dp = []
 for _ in range(n):
     wines.append(int(input()))
 
-if n > 2:
+if n > 3:
     dp.append(wines[0])
     dp.append(wines[0]+wines[1])
     dp.append(max([wines[0]+wines[1], wines[0]+wines[2], wines[1]+wines[2]]))
@@ -12,9 +12,9 @@ if n > 2:
     for i in range(3, n):
         dp.append(max([dp[i-1], dp[i-2]+wines[i], dp[i-3]+wines[i-1]+wines[i]]))
     print(dp[-1])
-elif n == 2:
+elif n == 3:
     print(max([wines[0]+wines[1], wines[0]+wines[2], wines[1]+wines[2]]))
-elif n == 1:
+elif n == 2:
     print(wines[0]+wines[1])
 else:
     print(wines[0])
