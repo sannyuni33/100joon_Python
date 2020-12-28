@@ -30,23 +30,27 @@ def rotate(gear, dir):
     # 2번 바퀴와 3번 바퀴가 다시 3번 바퀴를 인자로 넣은 rotate 를 호출하면 안됨.
     # 그럼 왼쪽으로 진행되는 반복문과 오른쪽으로 진행되는 반복문을 구현?
 
+    # 3번부터 시작해서 2~1 번까지, 4번까지 가면서
+    # 얘가 회전 대상인지아닌지, 방향은 어딘지만 저장해주면 되겠다
+
+    go2Rotate = [[gear, dir]]
     tmpDir = -dir  # 인자로 들어온 바퀴와 반대로 회전해야함
     for i in range(gear, 0, -1):
         print('To the left')
         if gears[i][6] != gears[i-1][2]:  # 오른쪽 6번과 왼쪽 2번 극이 다르면
-            clock(gears[i-1], tmpDir)  # 왼쪽을 회전
+            go2Rotate.append([i-1, tmpDir])   # 왼쪽은 회전대상.
             tmpDir = -tmpDir  # 다음 왼쪽바퀴가 극이 다를 경우를 위해 회전방향변경
-        else:
+        else:  # 극이 같다면 진행을 멈춤
             break
     for j in range(gear, len(gears)-1):
         print('To the right')
         if gears[j][2] != gears[j+1][6]:  # 왼쪽 2번과 오른쪽 6번 극이 다르면
-            clock(gears[j+1], tmpDir)  # 오른쪽을 회전
+            go2Rotate.append([j+1, tmpDir])  # 오른쪽은 회전대상.
             tmpDir = -tmpDir  # 다음 왼쪽바퀴가 극이 다를 경우를 위해 회전방향변경
         else:
             break
-    clock(gears[gear], dir)
-
+    for i in range(len(go2Rotate)):  # 회전대상인 바퀴들을 회전
+        clock(gears[go2Rotate[i][0]], go2Rotate[i][1])
     for x in gears:
         print(x)
 
