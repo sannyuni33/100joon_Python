@@ -12,7 +12,7 @@ def DFS(x, y, lst, h):
     while len(stack) > 0:  # 스택이 안비니까 무한루프겠쥬?
         t = stack.pop()
         visited[t[0]][t[1]] = True
-        print('searching four direction')
+        print('searching 4 direction')
         for i in range(4):
             if 0 <= t[0]+x[i] < n and 0 <= t[1]+y[i] < n:  # 그래프 범위 안일때
                 if lst[t[0]+x[i]][t[1]+y[i]] > h and not visited[t[0]+x[i]][t[1]+y[i]]:  # 물에 잠기지 않은 곳
@@ -27,7 +27,7 @@ for _ in range(n):
     if max(h) > highest:
         highest = max(h)
 
-for h in range(1, highest):
+for h in range(0, highest+1):
     numOfSZ = 0
     visited = [[False] * n for _ in range(n)]
     for i in range(n):
@@ -42,3 +42,4 @@ for h in range(1, highest):
 print(res)
 
 # 81% 퍼에서 틀려버림. 반례가 뭘까아아아요
+# 비가 쌓이는 높이를 0부터 시작했더니 맞았음.... 근데 시간이 4828 ms 인데 어케 줄이지?
