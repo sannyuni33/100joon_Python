@@ -6,8 +6,8 @@ bitmap3 = [[0 for _ in range(n)] for _ in range(n)]
 answer = ["" for _ in range(n)]
 
 for i in range(n):
-    tmp1 = list(bin(arr1[i])[2:].zfill(6))
-    tmp2 = list(bin(arr2[i])[2:].zfill(6))
+    tmp1 = list(bin(arr1[i])[2:].zfill(n))
+    tmp2 = list(bin(arr2[i])[2:].zfill(n))
     bitmap1.append(tmp1)
     bitmap2.append(tmp2)
 print(*bitmap1)
