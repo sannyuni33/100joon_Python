@@ -8,6 +8,7 @@ while p < n:
             useR = True
     p += 1
     ans += 1
+print(ans)
 
 # if not useR:
 #     if row[p] == 'S':
@@ -23,7 +24,7 @@ while p < n:
 #     else:
 #         p += 2
 #     ans += 1
-print(ans)
+# print(ans)
 # 커플석의 좌석수에 따라 정답을 결정하는 일은
 # 커플석끼리 붙어있을수도 떨어져있을수도 있으니 부적절
 # 문자열 처리 방식으로 풀어주는게 좋겠다
