@@ -12,11 +12,10 @@ for _ in range(n):
     t, z = map(str, input().split())
     countDown -= int(t)
     if countDown <= 0:
-        ans = firstIsBomb[0]
         break
     if z == 'T':
         turn(firstIsBomb)
-print(ans)
+print(firstIsBomb[0])
 
 # k = int(input())
 # n = int(input())
@@ -38,3 +37,4 @@ print(ans)
 # 정답을 맞추더라도 그 전에 시간이 다되면 터지니까 시간 줄이기를 먼저
 
 # 큐로 구현한 버전은 64ms, 모듈로 연산 쓴 버전은 68ms
+# 큐로 구현한거 다시 돌리니까 68ms 걸림. 시간복잡도는 똑같은듯
