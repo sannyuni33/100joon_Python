@@ -6,7 +6,6 @@ photoFrames, countCache, lruQ = [0 for _ in range(n)], [0 for _ in range(n)], [i
 for r in rlist:
     print('r:', r)
     if r not in photoFrames:
-        print('cache miss. find min.')
         if countCache.count(min(countCache)) > 1:  # 최소값이 여러개(여기서 시작)
             print('countCache;', countCache)
             m, mlist = min(countCache), []
@@ -22,9 +21,8 @@ for r in rlist:
         photoFrames[i] = r
         countCache[i] = 1
     else:
-        print('cache success')
         countCache[photoFrames.index(r)] += 1
-    lruQ.append(lruQ.pop(lruQ.index(photoFrames.index(r))))  # 캐시성공은 여기서 끝
+    lruQ.append(lruQ.pop(lruQ.index(photoFrames.index(r))))
     print('photoFrames:', photoFrames)
     print('lruQ:', lruQ)
 
@@ -46,3 +44,31 @@ print(*sorted(photoFrames))
 
 # 최소값이 여러개면 최소값 갖는 애들의 인덱스를 mlist 에 저장하고,
 # lruQ 의 원소를 0번부터 살피다가 mlist 에 있는애면 i로 지정하고 반복문 종료
+
+# 3
+# 3
+# 1 1 1
+#
+# 3
+# 14
+# 2 1 4 3 5 6 2 7 2 100 100 54 54 50
+#
+# 3
+# 9
+# 2 2 4 3 5 6 2 7 2
+#
+# 3
+# 10
+# 3 4 3 3 1 2 4 1 5 7
+#
+# 3
+# 2
+# 1 1
+#
+# 3
+# 2
+# 1 3
+#
+# 2
+# 11
+# 1 2 2 2 3 3 1 1 1 3 3
