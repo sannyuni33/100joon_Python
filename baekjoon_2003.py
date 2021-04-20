@@ -2,7 +2,7 @@ n, m = map(int, input().split())
 lst = list(map(int, input().split()))
 start = end = res = 0
 
-while start + end < 2*len(lst):
+while start + end < 2*n:
     if sum(lst[start:end+1]) == m:
         res += 1
         start += 1
