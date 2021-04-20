@@ -1,8 +1,12 @@
-n, ans = int(input())-1, 1  # 맨 처음 A를 한 번 입력한 상태
+n, ans, buffer = int(input())-1, 1, 0  # 맨 처음 A를 한 번 입력한 상태
 
 while n > 0:
+    if n > 2:
+        print('현수 하고싶은거 해')
 
-    break
+    else:
+        print('이제 복붙은 안됨요')
+        break
 
 print(ans)
 
