@@ -14,7 +14,7 @@ class Food:
         self.name = name
         self.price = price
         
-class PizzaStore():
+class PizzaStore(DeliveryStore):  # 상속성 추가
     def __init__(self):
         menu_names = ["Cheese", "Potato", "Shrimp", "Pineapple", "Meatball"]
         menu_prices = [11100, 12600, 13300, 21000, 19500];
