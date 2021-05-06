@@ -2,8 +2,8 @@ def solution(revenue, k) :
     answer = 0
     rsum = sum(revenue[0:k])
     answer = rsum
-    for i in range(len(revenue)) :
-        rsum = rsum - revenue[i - k] + revenue[i]
+    for i in range(k, len(revenue)):
+        rsum = rsum - revenue[i - k] + revenue[i]  # 0 4, 1 5, ... 3 7 로 가야하는디
         if answer < rsum :
             answer = rsum
     return answer
@@ -22,3 +22,5 @@ ret2 = solution(revenue2, k2)
 
 #[실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
 print("solution 함수의 반환 값은 ", ret2, " 입니다.")
+
+# 이건 멍청했다 인정

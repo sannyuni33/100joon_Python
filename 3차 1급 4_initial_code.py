@@ -3,12 +3,14 @@
 
 def solution(s1, s2):
     # 여기에 코드를 작성해주세요.
+    global flag
     answer = 0
     for i in range(len(s1)):
         if s2[0] == s1[i]:  # 겹치는 부분 발견
-            for j in range(i, len(s1)):
+            print(i, '번째서 탐색시작')
+            for j in range(i, min(len(s1), len(s2))-i):
                 flag = 0
-                if s1[i+j] != s2[j]:
+                if s1[i+j] != s2[flag]:
                     flag = -1
                     break
                 else:

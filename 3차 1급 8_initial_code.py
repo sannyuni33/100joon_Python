@@ -3,7 +3,7 @@ def solution(k, student):
     for s in student:
         s -= 4*k
         if s <= 0:
-            break
+            continue
         answer += (s + k - 1) // k
     return answer
 

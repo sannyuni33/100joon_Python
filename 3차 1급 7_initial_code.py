@@ -3,7 +3,7 @@ def solution(k):
     for i in range(1, k + 1):
         square_num = i * i
         divisor = 1
-        while square_num % divisor != 0:
+        while square_num // divisor != 0:
             front = square_num // divisor
             back = square_num % divisor
             divisor *= 10
