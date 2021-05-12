@@ -11,6 +11,11 @@ def solution(n, lost, reserve):
             if attend[a+1] == 2:
                 attend[a] += 1
                 attend[a+1] -= 1
+
+    if not attend[-1] and attend[-2] == 2:
+        attend[-2] -= 1
+        attend[-1] += 1
+
     return n - attend.count(0)
 
 
